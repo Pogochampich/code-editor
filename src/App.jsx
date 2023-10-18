@@ -14,18 +14,15 @@ function App() {
 
 
   return (
-<<<<<<< HEAD
+
     <AuthContext.Provider value={{
       token,
       uuid,
       login,
       logout
     }}>
-=======
 
-  <>
     <Header />
->>>>>>> 065d306a420ae56d1721cb4a2d9900f4ef81a328
      <BrowserRouter>
        <Routes>
            <Route path="/login" element={<Form />} />
