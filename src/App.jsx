@@ -3,23 +3,26 @@ import { Routes, Route, BrowserRouter } from "react-router-dom"
 import LoginPage from './pages/Login'
 import RegistrationPage from './pages/Registration'
 import { AuthContext } from "./context/AuthContext"
+import { useAuth } from "./hooks/useAuth"
 
 function App() {
-  
+  const { login, logout, token, userId, ready } = useAuth();
+  //const isAuthenticated = !!token
 
-
-  const isAuthenticated = !!token
-
-
+  if (!ready) {
+    return <div>Loading...</div>
+  }
 
   return (
 
     <AuthContext.Provider value={{
       token,
-      uuid,
+      userId,
       login,
       logout
     }}>
+
+    
 
     <Header />
      <BrowserRouter>
