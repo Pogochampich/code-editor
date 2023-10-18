@@ -75,27 +75,30 @@ const RegistrationPage = () => {
 				{/* {confirmPass()} */}
 			</div>
 			
-			<div className="reg_image"></div>
+			<img class="form-img" src="../src/assets/images/reg.png" alt="" />
 
 			<div className="form_box">
 
+				<div className='form_box-header'>
+					<label className="label form_box-header-text" >Welcome to the<br></br> Code Wars! </label>
+				</div>
+
 				<form>
+					<label className="label label-top" >CREATE ACCOUNT</label>
 					{/* Labels and inputs for form data */}
-					<label className="label">Имя пользователя</label>
+
 					<input onChange={handleName} className="input"
-						value={name} type="text" />
+						value={name} type="text" placeholder="username" />
 
-					<label className="label">Пароль</label>
 					<input onChange={handlePassword} className="input"
-						value={password} type="password" />
+						value={password} type="password" placeholder="password"/>
 
-					<label className="label">Повтор пароля</label>
 					<input onChange={handlePasswordRepeat} className="input"
-						value={passwordRepeat} type="password" />	
+						value={passwordRepeat} type="password" placeholder="repeat password"/>	
 
 					<button onClick={handleSubmit} className="btn"
 							type="submit">
-						Зарегистрироваться
+						Login in
 					</button>
 				</form>
 			</div>

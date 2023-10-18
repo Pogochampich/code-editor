@@ -4,12 +4,12 @@ const Header = () => {
     return(
         <header>
             <div class="header_textbox">
-                <p class="logo">Code Wars</p>
+                <a href='http://localhost:5173/' class="logo">Code Wars</a>
             </div>
 
             <div class="header_logbox">
-                <p>Join</p>
-                <p class="header_logbox-reg">Create account</p>
+                <a href='http://localhost:5173/login'>Join</a>
+                <a href='http://localhost:5173/register' class="header_logbox-reg">Create account</a>
             </div>
         </header>
     )
