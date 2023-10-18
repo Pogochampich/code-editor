@@ -1,4 +1,10 @@
-.form
+.reg_image
+    margin: auto
+    height: 100px
+    width: 100px
+    background-image: url("../src/assets/images/reg.png")
+    
+.form_container
     width: 100% 
 
     padding: 20px 150px
@@ -9,12 +15,6 @@
 
     justify-content: center
     align-content: center
-
-.reg_image
-    margin: auto
-    height: 100px
-    width: 100px
-    background-image: url("../src/assets/images/reg.png")
 
 form
     margin: auto
@@ -34,46 +34,15 @@ form
     height: 700px
     width: 700px
 
-.label
+.form_box
     margin: auto
+    height: 772px
+    width: 550px
 
-.label-top
-    font-size: 24px
-    margin: 45px auto
+    display: flex
 
-.input
-    background-color:  #023E8A30
-    font-size: 16px
-
-    width: 410px
-    height: 55px
-    border-radius: 10px
-
-    margin-top: 45px
-    
-    padding-left: 35px
-    
-    border: none
-    margin: auto
-
-.btn
-    font-size: 22px
-
-    width: 167px
-    height: 54px
-
-    margin: auto    
-
-    margin-top: 97px
-    margin-bottom: 52px
-
-    background-color: #03045E
-
-    border: none
-
-    border-radius: 10px
-
-    color: white
+    flex-direction: column
+    align-self: right
 
 .form_box-header
     border-radius: 10px 10px 0px 0px
@@ -83,6 +52,7 @@ form
     width: 550px
 
     display: flex
+    flex-direction: column
 
 .form_box-header-text
 
@@ -95,12 +65,60 @@ form
 
     color: white
 
-.form_box
-    margin: auto
-    height: 772px
-    width: 550px
-
+.input_box
     display: flex
-
     flex-direction: column
-    align-self: right
+
+    align-items: center
+
+.input
+    background-color:  #023E8A30
+    font-size: 16px
+
+    width: 410px
+    height: 55px
+    border-radius: 10px
+    
+    padding-left: 35px
+    
+    border: none
+
+    margin-top: 40px
+
+    &:first-child
+        margin-top: 0px
+
+
+.label
+    margin: auto
+
+
+.label-top
+    font-size: 24px
+    margin: 20px auto
+
+.mes
+    font-size: 12px
+    color: red
+
+
+.btn
+    font-size: 22px
+
+    width: 167px
+    height: 54px
+
+    margin: auto    
+
+    margin-bottom: 52px
+
+    background-color: #03045E
+
+    border: none
+
+    border-radius: 10px
+
+    color: white
+
+
+

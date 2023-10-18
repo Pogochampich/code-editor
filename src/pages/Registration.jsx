@@ -31,11 +31,12 @@ const RegistrationPage = () => {
 	// Handling the form submission
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(password != passwordRepeat)
+		// console.log(password != '' && passwordRepeat != '' && password != passwordRepeat);
 		if (password != '' && passwordRepeat != '' && password != passwordRepeat){
 			setError('Пароли не совпадают');
+			
 		}
-		if (name === '' || password === '' || passwordRepeat === '' || password != passwordRepeat) {
+		else if (name === '' || password === '' || passwordRepeat === '') {
 			setError('Не все поля заполнены');
 		} else {
 			setSubmitted(true);
@@ -50,7 +51,7 @@ const RegistrationPage = () => {
 				<div
 					className="success"
 					style={{
-						display: submitted ? '' : 'none',
+						display: submitted ? '' : 'none', color: 'green'
 					}}>
 					<h1>Пользователь {name} успешно зарегистрирован</h1>
 				</div>
@@ -66,15 +67,14 @@ const RegistrationPage = () => {
 	};
 
 	return (
-		<div className="form">
+		<div className="form_container">
 
 			{/* Calling to the methods */}
-			<div className="messages">
-				{errorMessage()}
-				{successMessage()}
+			{/* <div className="messages"> */}
+				{/* {errorMessage()} */}
+				{/* {successMessage()} */}
 				{/* {confirmPass()} */}
-			</div>
-			
+			{/* </div> */}
 			<img class="form-img" src="../src/assets/images/reg.png" alt="" />
 
 			<div className="form_box">
@@ -84,17 +84,20 @@ const RegistrationPage = () => {
 				</div>
 
 				<form>
-					<label className="label label-top" >CREATE ACCOUNT</label>
+					<label className="label-top" >CREATE ACCOUNT</label>
 					{/* Labels and inputs for form data */}
 
-					<input onChange={handleName} className="input"
-						value={name} type="text" placeholder="username" />
+					<div className='input_box'>
+						
+						<input onChange={handleName} className="input" value={name} type="text" placeholder="username" />
 
-					<input onChange={handlePassword} className="input"
-						value={password} type="password" placeholder="password"/>
+						<input onChange={handlePassword} className="input" value={password} type="password" placeholder="password"/>
 
-					<input onChange={handlePasswordRepeat} className="input"
-						value={passwordRepeat} type="password" placeholder="repeat password"/>	
+						<input onChange={handlePasswordRepeat} className="input" value={passwordRepeat} type="password" placeholder="repeat password"/>	
+					
+					</div>
+					
+					<div className="label mes">{errorMessage()}{successMessage()}</div>
 
 					<button onClick={handleSubmit} className="btn"
 							type="submit">

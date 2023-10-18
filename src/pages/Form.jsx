@@ -86,7 +86,7 @@ export default function Form() {
 
 			{/* Calling to the methods */}
 			<div className="messages">
-				{errorMessage()}
+				
 				{successMessage()}
 				{/* {confirmPass()} */}
 			</div>
@@ -104,6 +104,8 @@ export default function Form() {
 				<label className="label">Повтор пароля</label>
 				<input onChange={handlePasswordRepeat} className="input"
 					value={passwordRepeat} type="password" />	
+
+				<label className="label">{errorMessage()}</label>
 
 				<button onClick={handleSubmit} className="btn"
 						type="submit">

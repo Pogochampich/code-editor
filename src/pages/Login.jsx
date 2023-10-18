@@ -61,7 +61,7 @@ const LoginPage = () => {
 	};
 
 	return (
-		<div className="form">
+		<div className="form_container">
 
 			{/* Calling to the methods */}
 			<div className="messages">
@@ -82,16 +82,14 @@ const LoginPage = () => {
 				<form>
 					{/* Labels and inputs for form data */}
 					<label className="label label-top" >LOGIN ACCOUNT</label>
+					<div className='input_box'>
+						<input onChange={handleName} className="input" value={name} type="text" placeholder="username"/>
 
-					<input onChange={handleName} className="input"
-						value={name} type="text" placeholder="username"/>
 
-
-					<input onChange={handlePassword} className="input"
-						value={password} type="password" placeholder="password"/>
-
-					<button onClick={handleSubmit} className="btn"
-							type="submit">
+						<input onChange={handlePassword} className="input" value={password} type="password" placeholder="password"/>
+					</div>
+					
+					<button onClick={handleSubmit} className="btn" type="submit">
 						Войти
 					</button>
 				</form>

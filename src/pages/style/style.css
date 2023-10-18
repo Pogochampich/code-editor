@@ -1,17 +1,17 @@
-.form {
+.reg_image {
+  margin: auto;
+  height: 100px;
+  width: 100px;
+  background-image: url("../src/assets/images/reg.png");
+}
+
+.form_container {
   width: 100%;
   padding: 20px 150px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-content: center;
-}
-
-.reg_image {
-  margin: auto;
-  height: 100px;
-  width: 100px;
-  background-image: url("../src/assets/images/reg.png");
 }
 
 form {
@@ -31,38 +31,13 @@ form {
   width: 700px;
 }
 
-.label {
+.form_box {
   margin: auto;
-}
-
-.label-top {
-  font-size: 24px;
-  margin: 45px auto;
-}
-
-.input {
-  background-color: rgba(2, 62, 138, 0.1882352941);
-  font-size: 16px;
-  width: 410px;
-  height: 55px;
-  border-radius: 10px;
-  margin-top: 45px;
-  padding-left: 35px;
-  border: none;
-  margin: auto;
-}
-
-.btn {
-  font-size: 22px;
-  width: 167px;
-  height: 54px;
-  margin: auto;
-  margin-top: 97px;
-  margin-bottom: 52px;
-  background-color: #03045E;
-  border: none;
-  border-radius: 10px;
-  color: white;
+  height: 772px;
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+  align-self: right;
 }
 
 .form_box-header {
@@ -71,6 +46,7 @@ form {
   height: 196px;
   width: 550px;
   display: flex;
+  flex-direction: column;
 }
 
 .form_box-header-text {
@@ -81,20 +57,59 @@ form {
   color: white;
 }
 
-.form_box {
-  margin: auto;
-  height: 772px;
-  width: 550px;
+.input_box {
   display: flex;
   flex-direction: column;
-  align-self: right;
+  align-items: center;
+}
+
+.input {
+  background-color: rgba(2, 62, 138, 0.1882352941);
+  font-size: 16px;
+  width: 410px;
+  height: 55px;
+  border-radius: 10px;
+  padding-left: 35px;
+  border: none;
+  margin-top: 40px;
+}
+.input:first-child {
+  margin-top: 0px;
+}
+
+.label {
+  margin: auto;
+}
+
+.label-top {
+  font-size: 24px;
+  margin: 20px auto;
+}
+
+.mes {
+  font-size: 12px;
+  color: red;
+}
+
+.btn {
+  font-size: 22px;
+  width: 167px;
+  height: 54px;
+  margin: auto;
+  margin-bottom: 52px;
+  background-color: #03045E;
+  border: none;
+  border-radius: 10px;
+  color: white;
 }
 
 header {
+  max-width: 1920px;
   height: 85px;
   width: 100%;
   background-color: #001524;
   color: white;
+  margin: auto;
   padding: 0px 100px;
   box-sizing: border-box;
   display: flex;
@@ -115,12 +130,132 @@ header {
 }
 
 .header_logbox-reg {
+  color: white;
+  text-decoration: none;
   margin-left: 50px;
+  display: flex;
+}
+.header_logbox-reg:hover {
+  color: #bebebe;
+}
+.header_logbox-reg:first-child {
+  margin-left: 0px;
+}
+
+.user-logo {
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  margin: auto;
+  margin-right: 10px;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.tasks-container {
+  max-width: 1920px;
+  margin: auto;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  padding: 0px 100px;
+  box-sizing: border-box;
+}
+
+.tasks-top {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+}
+
+.tasks-top-button {
+  height: 61px;
+  width: 180px;
+  background-color: #03045E;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+.tasks-top-button:hover {
+  background-color: #030347;
+}
+
+.tasks-main {
+  min-height: 700px;
+  width: 100%;
+}
+
+table {
+  min-height: 663px;
+  width: 100%;
+  background-color: #fff;
+  border-spacing: 0px;
+  border-collapse: collapse;
+  border-radius: 10px;
+}
+
+tr {
+  height: 117px;
+  width: 100%;
+  border-bottom: 1px solid black;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+}
+tr:first-child {
+  font-weight: 200;
+  color: white;
+  height: 68px;
+  background-color: #03045E;
+}
+
+th {
+  text-align: left;
+  min-width: 300px;
+  margin: auto;
+}
+th:first-child {
+  margin-left: 65px;
+}
+
+.tasks-main-button {
+  height: 47px;
+  width: 147px;
+  background-color: #03045E;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+.tasks-main-button:hover {
+  background-color: #030347;
 }
 
 * {
   margin: 0px;
   padding: 0px;
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
 }
 
 body {
@@ -130,4 +265,8 @@ body {
 .login_frame {
   height: 100vh;
   width: 100%;
+}
+
+.success {
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */
