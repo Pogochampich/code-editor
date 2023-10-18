@@ -1,4 +1,5 @@
 import Header from "./pages/Header"
+import Footer from "./pages/Footer"
 import { Routes, Route, BrowserRouter } from "react-router-dom"
 import LoginPage from './pages/Login'
 import RegistrationPage from './pages/Registration'
@@ -17,6 +18,7 @@ function App() {
            <Route path="/create" exact element={<CreateTasks />} />
        </Routes>
      </BrowserRouter>
+     <Footer />
     </>
   )
 }

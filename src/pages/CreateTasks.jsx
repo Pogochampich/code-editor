@@ -25,7 +25,6 @@ const CreateTasks = () => {
                         </form>
                     </div>
             </div>
-
         </section>
     )
   }
