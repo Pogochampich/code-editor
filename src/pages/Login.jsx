@@ -5,7 +5,7 @@ const LoginPage = () => {
 
         
 
-        <div>
+        <div class="login_frame">
             
         </div>
     )
