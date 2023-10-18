@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import {Link, Outlet} from 'react-router-dom';
 
 
 const Tasks = () => {
@@ -24,7 +25,7 @@ const Tasks = () => {
 
             <div className="tasks-top">
                 <h1>You can create a new task</h1>
-                <a href="/create" className="tasks-top-button"><span className="tasks-top-button-text">Create task</span></a>
+                <Link to="/create" className="tasks-top-button"><span className="tasks-top-button-text">Create task</span></Link>
             </div>
 
             <div className="tasks-main">
@@ -43,7 +44,7 @@ const Tasks = () => {
                     <tr>
                         <th>{taskname}</th>
                         <th>{desc}</th>
-                        <th><a href={btnhref}><button className="tasks-main-button">Connect</button></a></th>
+                        <th><Link to={btnhref}><button className="tasks-main-button">Connect</button></Link></th>
                     </tr>
 
                     {/* <tr>

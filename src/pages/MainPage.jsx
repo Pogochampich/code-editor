@@ -1,8 +1,8 @@
-import react from 'react'
+import React from 'react';
+import {Link, Outlet} from 'react-router-dom';
 import { useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
 
-const Header = () => {
+const MainPage = () => {
     const [username, setUserName] = useState('User');
 
     const handleUserName = (e) => {
@@ -10,22 +10,22 @@ const Header = () => {
 		setSubmitted(false);
 	};
 
-    return(
-        <>
+  return (
+    <>
         <header>
             <div className="header_textbox">
-                <a href='/tasks' className="header_logbox-reg">Code Wars</a>
+                <Link to='/tasks' className="header_logbox-reg">Code Wars</Link>
             </div>
 
             <div className="header_logbox">
-                <a href='/login' className="header_logbox-reg">Join</a>
-                <a href='/register' className="header_logbox-reg">Create account</a>
+                <Link to='/login' className="header_logbox-reg">Join</Link>
+                <Link to='/register' className="header_logbox-reg">Create account</Link>
                 <a className="header_logbox-reg"><span className='user-logo'> </span>{username}</a>
             </div>
         </header>
         <Outlet />
-        </>
-    )
-}
+    </>
+  )
+};
 
-export default Header
+export default MainPage
