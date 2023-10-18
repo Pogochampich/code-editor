@@ -5,7 +5,6 @@ const LoginPage = () => {
 	// States for registration
 	const [name, setName] = useState('');
 	const [password, setPassword] = useState('');
-	const [passwordRepeat, setPasswordRepeat] = useState('');
 
 	// States for checking the errors
 	const [submitted, setSubmitted] = useState(false);
@@ -33,10 +32,7 @@ const LoginPage = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log(password != passwordRepeat)
-		if (password != '' && passwordRepeat != '' && password != passwordRepeat){
-			setError('Пароли не совпадают');
-		}
-		if (name === '' || password === '' || passwordRepeat === '' || password != passwordRepeat) {
+		if (name === '' || password === '') {
 			setError('Не все поля заполнены');
 		} else {
 			setSubmitted(true);
@@ -46,42 +42,28 @@ const LoginPage = () => {
 
 	// Showing success message
 	const successMessage = () => {
-		if (password === passwordRepeat){
 			return (
 				<div
 					className="success"
 					style={{
 						display: submitted ? '' : 'none',
 					}}>
-					<h1>User {name} successfully registered!!</h1>
+					<h1>Пользователь {name} успешно зарегистрирован</h1>
 				</div>
 			);
-		}
 	};
-
-	// const confirmPass = () => {
-	// 	if (password != '' && passwordRepeat != '' && password != passwordRepeat){
-	// 		return <h1>"Пароли не совпадают"</h1>
-	// 	}
-	// };
 
 	//Showing error message if error is true
 	const errorMessage = () => {
 		return (
-			<div
-				className="error"
-				style={{
-					display: error ? '' : 'none',
-				}}>
-				<h1>Please enter all the fields</h1>
-			</div>
+			<h1>{error}</h1>
 		);
 	};
 
 	return (
 		<div className="form">
 			<div>
-				<h1>User Registration</h1>
+				<h1>Регистрация пользователя</h1>
 			</div>
 
 			{/* Calling to the methods */}
@@ -101,13 +83,9 @@ const LoginPage = () => {
 				<input onChange={handlePassword} className="input"
 					value={password} type="password" />
 
-				<label className="label">Повтор пароля</label>
-				<input onChange={handlePasswordRepeat} className="input"
-					value={passwordRepeat} type="password" />	
-
 				<button onClick={handleSubmit} className="btn"
 						type="submit">
-					Submit
+					Войти
 				</button>
 			</form>
 		</div>
