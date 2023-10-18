@@ -1,9 +1,11 @@
+import React  from "react";
+
 const CreateTasks = () => {
     const [title, setEmail] = React.useState('');
     const [result, setResult] = React.useState('');
     const [description, setDescription] = React.useState('');
 
-   const createSubmit = (e: React.FormEvent) => {
+   const createSubmit = (e) => {
         e.preventDefault();
         api.login(title, result, description);
       };

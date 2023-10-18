@@ -14,7 +14,7 @@ function App() {
        <Routes>
            <Route path="/login" element={<LoginPage />} />
            <Route path="/register" element={<RegistrationPage />} />
-           <Route path="/create" element={<CreateTasks />} />
+           <Route path="/create" exact element={<CreateTasks />} />
        </Routes>
      </BrowserRouter>
     </>
