@@ -5,7 +5,6 @@ const LoginPage = () => {
 	// States for registration
 	const [name, setName] = useState('');
 	const [password, setPassword] = useState('');
-	const [passwordRepeat, setPasswordRepeat] = useState('');
 
 	// States for checking the errors
 	const [submitted, setSubmitted] = useState(false);
@@ -33,10 +32,7 @@ const LoginPage = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log(password != passwordRepeat)
-		if (password != '' && passwordRepeat != '' && password != passwordRepeat){
-			setError('Пароли не совпадают');
-		}
-		if (name === '' || password === '' || passwordRepeat === '' || password != passwordRepeat) {
+		if (name === '' || password === '') {
 			setError('Не все поля заполнены');
 		} else {
 			setSubmitted(true);
@@ -46,7 +42,6 @@ const LoginPage = () => {
 
 	// Showing success message
 	const successMessage = () => {
-		if (password === passwordRepeat){
 			return (
 				<div
 					className="success"
@@ -56,7 +51,6 @@ const LoginPage = () => {
 					<h1>Пользователь {name} успешно зарегистрирован</h1>
 				</div>
 			);
-		}
 	};
 
 	//Showing error message if error is true
@@ -89,13 +83,9 @@ const LoginPage = () => {
 				<input onChange={handlePassword} className="input"
 					value={password} type="password" />
 
-				<label className="label">Повтор пароля</label>
-				<input onChange={handlePasswordRepeat} className="input"
-					value={passwordRepeat} type="password" />	
-
 				<button onClick={handleSubmit} className="btn"
 						type="submit">
-					Submit
+					Войти
 				</button>
 			</form>
 		</div>

@@ -2,10 +2,61 @@ form {
   background-color: black;
 }
 
-header {
+.form {
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+}
+
+.reg_image {
   height: 100px;
+  width: 100px;
+  background-color: red;
+  background-image: url("../src/assets/images/reg.png");
+}
+
+form {
+  height: 576px;
+  background-color: blue;
+  display: flex;
+  flex-direction: column;
+}
+
+.form_box {
+  height: 772px;
+  width: 550px;
+  background-color: green;
+  display: flex;
+  flex-direction: column;
+  align-self: right;
+}
+
+header {
+  height: 85px;
   width: 100%;
   background-color: #001524;
+  color: white;
+  padding: 0px 100px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 26px;
+}
+
+.header_textbox {
+  display: flex;
+  align-items: center;
+}
+
+.header_logbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header_logbox-reg {
+  margin-left: 50px;
 }
 
 * {

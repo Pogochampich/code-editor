@@ -67,9 +67,6 @@ const RegistrationPage = () => {
 
 	return (
 		<div className="form">
-			<div>
-				<h1>Регистрация пользователя</h1>
-			</div>
 
 			{/* Calling to the methods */}
 			<div className="messages">
@@ -77,26 +74,31 @@ const RegistrationPage = () => {
 				{successMessage()}
 				{/* {confirmPass()} */}
 			</div>
+			
+			<div className="reg_image"></div>
 
-			<form>
-				{/* Labels and inputs for form data */}
-				<label className="label">Имя пользователя</label>
-				<input onChange={handleName} className="input"
-					value={name} type="text" />
+			<div className="form_box">
 
-				<label className="label">Пароль</label>
-				<input onChange={handlePassword} className="input"
-					value={password} type="password" />
+				<form>
+					{/* Labels and inputs for form data */}
+					<label className="label">Имя пользователя</label>
+					<input onChange={handleName} className="input"
+						value={name} type="text" />
 
-				<label className="label">Повтор пароля</label>
-				<input onChange={handlePasswordRepeat} className="input"
-					value={passwordRepeat} type="password" />	
+					<label className="label">Пароль</label>
+					<input onChange={handlePassword} className="input"
+						value={password} type="password" />
 
-				<button onClick={handleSubmit} className="btn"
-						type="submit">
-					Submit
-				</button>
-			</form>
+					<label className="label">Повтор пароля</label>
+					<input onChange={handlePasswordRepeat} className="input"
+						value={passwordRepeat} type="password" />	
+
+					<button onClick={handleSubmit} className="btn"
+							type="submit">
+						Зарегистрироваться
+					</button>
+				</form>
+			</div>
 		</div>
 	);
 }
