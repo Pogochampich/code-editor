@@ -1,14 +1,9 @@
-import react from 'react'
-
 const LoginPage = () => {
-    return(
-
-        
-
-        <div class="login_frame">
+  return (
+    <div class="login_frame">
             
-        </div>
-    )
+    </div>
+  )
 }
 
 export default LoginPage
