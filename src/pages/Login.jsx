@@ -53,35 +53,23 @@ const LoginPage = () => {
 					style={{
 						display: submitted ? '' : 'none',
 					}}>
-					<h1>User {name} successfully registered!!</h1>
+					<h1>Пользователь {name} успешно зарегистрирован</h1>
 				</div>
 			);
 		}
 	};
 
-	// const confirmPass = () => {
-	// 	if (password != '' && passwordRepeat != '' && password != passwordRepeat){
-	// 		return <h1>"Пароли не совпадают"</h1>
-	// 	}
-	// };
-
 	//Showing error message if error is true
 	const errorMessage = () => {
 		return (
-			<div
-				className="error"
-				style={{
-					display: error ? '' : 'none',
-				}}>
-				<h1>Please enter all the fields</h1>
-			</div>
+			<h1>{error}</h1>
 		);
 	};
 
 	return (
 		<div className="form">
 			<div>
-				<h1>User Registration</h1>
+				<h1>Регистрация пользователя</h1>
 			</div>
 
 			{/* Calling to the methods */}
