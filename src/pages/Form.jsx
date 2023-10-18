@@ -1,14 +1,15 @@
 import { useState } from 'react';
 
-const LoginPage = () => {
-    // States for registration
+export default function Form() {
+
+	// States for registration
 	const [name, setName] = useState('');
 	const [password, setPassword] = useState('');
-    const [file, setFile] = useState<File>('');
+	const [passwordRepeat, setPasswordRepeat] = useState('');
 
 	// States for checking the errors
 	const [submitted, setSubmitted] = useState(false);
-	const [error, setError] = useState(false);
+	const [error, setError] = useState('');
 
 	// Handling the name change
 	const handleName = (e) => {
@@ -22,29 +23,47 @@ const LoginPage = () => {
 		setSubmitted(false);
 	};
 
+	// Handling the passwordRepeat change
+	const handlePasswordRepeat = (e) => {
+		setPasswordRepeat(e.target.value);
+		setSubmitted(false);
+	};
+
 	// Handling the form submission
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		if (name === '' || email === '' || password === '') {
-			setError(true);
+		console.log(password != passwordRepeat)
+		if (password != '' && passwordRepeat != '' && password != passwordRepeat){
+			setError('Пароли не совпадают');
+		}
+		if (name === '' || password === '' || passwordRepeat === '' || password != passwordRepeat) {
+			setError('Не все поля заполнены');
 		} else {
 			setSubmitted(true);
-			setError(false);
+			setError('');
 		}
 	};
 
 	// Showing success message
 	const successMessage = () => {
-		return (
-			<div
-				className="success"
-				style={{
-					display: submitted ? '' : 'none',
-				}}>
-				<h1>User {name} successfully registered!!</h1>
-			</div>
-		);
+		if (password === passwordRepeat){
+			return (
+				<div
+					className="success"
+					style={{
+						display: submitted ? '' : 'none',
+					}}>
+					<h1>User {name} successfully registered!!</h1>
+				</div>
+			);
+		}
 	};
+
+	// const confirmPass = () => {
+	// 	if (password != '' && passwordRepeat != '' && password != passwordRepeat){
+	// 		return <h1>"Пароли не совпадают"</h1>
+	// 	}
+	// };
 
 	// Showing error message if error is true
 	const errorMessage = () => {
@@ -59,17 +78,6 @@ const LoginPage = () => {
 		);
 	};
 
-    // const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    //     if (e.target.files) {
-    //       setFile(e.target.files[0]);
-    //     }
-    //   };
-    
-      const handleUploadClick = () => {
-        if (!file) {
-          return;
-        };
-
 	return (
 		<div className="form">
 			<div>
@@ -80,20 +88,22 @@ const LoginPage = () => {
 			<div className="messages">
 				{errorMessage()}
 				{successMessage()}
+				{/* {confirmPass()} */}
 			</div>
 
 			<form>
 				{/* Labels and inputs for form data */}
 				<label className="label">Имя пользователя</label>
 				<input onChange={handleName} className="input"
-					value={name} type="text" required/>
+					value={name} type="text" />
 
 				<label className="label">Пароль</label>
 				<input onChange={handlePassword} className="input"
-					value={password} type="password" required/>
+					value={password} type="password" />
 
-                <label className="label">Аватарка</label>
-                <input type="file" onChange={handleFileChange} />
+				<label className="label">Повтор пароля</label>
+				<input onChange={handlePasswordRepeat} className="input"
+					value={passwordRepeat} type="password" />	
 
 				<button onClick={handleSubmit} className="btn"
 						type="submit">
@@ -101,8 +111,5 @@ const LoginPage = () => {
 				</button>
 			</form>
 		</div>
-      
 	);
-    }
 }
-export default LoginPage
