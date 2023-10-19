@@ -11,8 +11,8 @@ import Tasks from "./pages/Tasks";
 import Task from "./pages/Task";
 
 function App() {
-  const { login, logout, token, userId, ready } = useAuth();
-  //const isAuthenticated = !!token
+  const { login, logout, token, ready } = useAuth();
+  const isAuthenticated = !!token;
 
   if (!ready) {
     return <div>Loading...</div>;
@@ -22,7 +22,7 @@ function App() {
     <AuthContext.Provider
       value={{
         token,
-        userId,
+        isAuthenticated,
         login,
         logout,
       }}

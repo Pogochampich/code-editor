@@ -1,13 +1,24 @@
-import react from "react";
+import react, { useContext } from "react";
 import { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, redirect } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 const Header = () => {
+  const auth = useContext(AuthContext);
+
+  const isLoggedIn = auth.isAuthenticated;
+
   const [username, setUserName] = useState("User");
 
   const handleUserName = (e) => {
     setUserName(e.target.value);
     setSubmitted(false);
+  };
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    auth.logout();
+    redirect("/login");
   };
 
   return (
@@ -26,10 +37,16 @@ const Header = () => {
           <a href="/register" className="header_logbox-reg">
             Create account
           </a>
-          <a className="header_logbox-reg">
-            <span className="user-logo"> </span>
-            {username}
-          </a>
+          {isLoggedIn ? (
+            <a href="/login" onClick={handleLogout}>
+              Log out
+            </a>
+          ) : (
+            <a className="header_logbox-reg">
+              <span className="user-logo"> </span>
+              {username}
+            </a>
+          )}
         </div>
       </header>
       <Outlet />

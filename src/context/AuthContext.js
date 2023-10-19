@@ -4,8 +4,7 @@ function noop() {}
 
 export const AuthContext = createContext({
   token: null,
-  id: null,
   isAuthenticated: false,
   login: noop,
-  logout: noop
+  logout: noop,
 });
