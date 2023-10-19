@@ -1,10 +1,12 @@
 import Header from "./pages/Header";
+import Footer from "./pages/Footer";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import LoginPage from "./pages/Login";
 import RegistrationPage from "./pages/Registration";
 import { AuthContext } from "./context/AuthContext";
 import { useAuth } from "./hooks/useAuth";
 import CreateTasks from "./pages/CreateTasks";
+import Battlefield from "./pages/Battlefield";
 import Tasks from "./pages/Tasks";
 import MainPage from "./pages/MainPage";
 
@@ -25,7 +27,7 @@ function App() {
         logout,
       }}
     >
-      {/* <Header /> */}
+      <Header />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<MainPage />}>
@@ -33,9 +35,11 @@ function App() {
             <Route path="*" element={<RegistrationPage />} />
             <Route path="/create" element={<CreateTasks />} />
             <Route path="/tasks" element={<Tasks />} />
+            <Route path="/battle" exact element={<Battlefield />} />
           </Route>
         </Routes>
       </BrowserRouter>
+      <Footer />
     </AuthContext.Provider>
   );
 }
