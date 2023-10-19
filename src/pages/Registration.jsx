@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useFetch } from "../hooks/useFetch";
 
 const RegistrationPage = () => {
-  const { loading, error, request } = useFetch();
+  const { loading, request } = useFetch();
   // States for registration
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -11,7 +11,7 @@ const RegistrationPage = () => {
 
   // States for checking the errors
   const [submitted, setSubmitted] = useState(false);
-  const [err, setErr] = useState("");
+  const [error, setError] = useState("");
 
   // Handling the name change
   const handleName = (e) => {
@@ -49,7 +49,7 @@ const RegistrationPage = () => {
     e.preventDefault();
     console.log(password != passwordRepeat);
     if (password != "" && passwordRepeat != "" && password != passwordRepeat) {
-      setErr("Пароли не совпадают");
+      setError("Пароли не совпадают");
     }
     if (
       name === "" ||
@@ -57,10 +57,10 @@ const RegistrationPage = () => {
       passwordRepeat === "" ||
       password != passwordRepeat
     ) {
-      setErr("Не все поля заполнены");
+      setError("Не все поля заполнены");
     } else {
       setSubmitted(true);
-      setErr("");
+      setError("");
       handleRegister();
     }
   };
@@ -86,7 +86,7 @@ const RegistrationPage = () => {
       <div
         className="error"
         style={{
-          display: err ? "" : "none",
+          display: error ? "" : "none",
         }}
       >
         <h1>Please enter all the fields</h1>
@@ -133,7 +133,12 @@ const RegistrationPage = () => {
           type="password"
         />
 
-        <button onClick={handleSubmit} className="btn" type="submit">
+        <button
+          disabled={loading}
+          onClick={handleSubmit}
+          className="btn"
+          type="submit"
+        >
           Submit
         </button>
       </form>
