@@ -2,23 +2,23 @@ import { Routes, Route, BrowserRouter } from "react-router-dom"
 import { useEffect, useState } from "react"
 import LoginPage from './Login'
 import RegistrationPage from './Registration'
-import ClipLoader from "react-spinners/ClipLoader";
+import Loading from "../components/Loading/Loading"
+import MainInput from "../components/MainInput/MainInput"
+import "../components/MainInput/MainInput.scss"
 
 function Task() {
 
   const [codeOpponent, setCodeOpponent] = useState('');
-  const [isLoad, setIsLoad] = useState(true);
   const [attemptCountOpponent, setAttemptCountOpponent] = useState(0);
   const [isConnected, setIsConnected] = useState(false);
   const [isReady, setIsReady] = useState(false);
   const [isOpponentReady, setIsOpponentReady] = useState(false);
-  
+
+  const socket = new WebSocket(`ws://134.0.116.26:4441`);
+
   function wsSocket() {
-    
-    const socket = new WebSocket(`ws://134.0.116.26:4441`);
 
     socket.onopen = (event) => {
-      socket.send(JSON.stringify({ event: 'ready' }));
     };
     
     socket.onmessage = function(messageEvent) {
@@ -27,10 +27,10 @@ function Task() {
 
       switch(event) {
         case 'connect':
-          setIsLoad(true);
+          setIsConnected(true);
           break;
         case 'ready':
-          setIsLoad(false);
+          setIsOpponentReady(true);
           break;
         case 'disconnect':
           socket.close();
@@ -58,6 +58,21 @@ function Task() {
   
   }
 
+  function textInput(text) {
+    let message = {
+      event: 'push',
+      data: `${text}`
+    }
+    socket.send(JSON.stringify(message))
+  }
+
+  const MainInput = () => {
+    return <div className='input'>
+        <textarea id="left-input" cols="40" rows="5" onChange = {(event) => {textInput(event.target.value)} } />
+        <textarea id="right-input" cols="40" rows="5" readOnly />
+    </div>
+}
+
   useEffect(() => {
     wsSocket();
   }, []);
@@ -73,10 +88,10 @@ function Task() {
     isConnected
       ? isReady
         ? isOpponentReady
-          ? <div><h1>Показываем основной интерфейс</h1></div>
-          : <div> <ClipLoader color={'red'} loading={true} size={100}/> </div>
+          ? <div> <MainInput/> </div>
+          : <div className='loading'> <Loading /> </div>
         : <div><h1>Показываем окно подтвердить готовность</h1></div>
-      : <div> <ClipLoader color={'red'} loading={true} size={100}/> </div>
+      : <div className='loading'> <Loading /> </div>
   )
 }
 
