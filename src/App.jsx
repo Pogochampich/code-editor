@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import Header from "./pages/Header";
 import Footer from "./pages/Footer";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
@@ -9,12 +8,7 @@ import { useAuth } from "./hooks/useAuth";
 import CreateTasks from "./pages/CreateTasks";
 import Battlefield from "./pages/Battlefield";
 import Tasks from "./pages/Tasks";
-=======
-import { Routes, Route, BrowserRouter } from "react-router-dom"
-import LoginPage from './pages/Login'
-import RegistrationPage from './pages/Registration'
-import Task from './pages/Task'
->>>>>>> origin/WebSocket
+import Task from "./pages/Task";
 
 function App() {
   const { login, logout, token, userId, ready } = useAuth();
