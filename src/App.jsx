@@ -8,7 +8,6 @@ import { useAuth } from "./hooks/useAuth";
 import CreateTasks from "./pages/CreateTasks";
 import Battlefield from "./pages/Battlefield";
 import Tasks from "./pages/Tasks";
-import MainPage from "./pages/MainPage";
 
 function App() {
   const { login, logout, token, userId, ready } = useAuth();
@@ -30,13 +29,11 @@ function App() {
       <Header />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<MainPage />}>
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="*" element={<RegistrationPage />} />
-            <Route path="/create" element={<CreateTasks />} />
-            <Route path="/tasks" element={<Tasks />} />
-            <Route path="/battle" exact element={<Battlefield />} />
-          </Route>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegistrationPage />} />
+          <Route path="/create" element={<CreateTasks />} />
+          <Route path="/tasks" element={<Tasks />} />
+          <Route path="/battle" exact element={<Battlefield />} />
         </Routes>
       </BrowserRouter>
       <Footer />
