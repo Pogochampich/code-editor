@@ -1,16 +1,40 @@
+import react from "react";
+import { useState } from "react";
+import { Link, Outlet } from "react-router-dom";
+
 const Header = () => {
-    return(
-        <header>
-            <div class="header_textbox">
-                <p class="logo">Code Wars</p>
-            </div>
+  const [username, setUserName] = useState("User");
 
-            <div class="header_logbox">
-                <p>Join</p>
-                <p class="header_logbox-reg">Create account</p>
-            </div>
-        </header>
-    )
-}
+  const handleUserName = (e) => {
+    setUserName(e.target.value);
+    setSubmitted(false);
+  };
 
-export default Header
+  return (
+    <>
+      <header>
+        <div className="header_textbox">
+          <a href="/tasks" className="header_logbox-reg">
+            Code Wars
+          </a>
+        </div>
+
+        <div className="header_logbox">
+          <a href="/login" className="header_logbox-reg">
+            Join
+          </a>
+          <a href="/register" className="header_logbox-reg">
+            Create account
+          </a>
+          <a className="header_logbox-reg">
+            <span className="user-logo"> </span>
+            {username}
+          </a>
+        </div>
+      </header>
+      <Outlet />
+    </>
+  );
+};
+
+export default Header;

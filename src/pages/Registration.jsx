@@ -1,19 +1,39 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { useFetch } from "../hooks/useFetch";
 
 const RegistrationPage = () => {
+  function Registration() {
+		useEffect(() => {
+			const actualBtn = document.getElementById('actual-btn');
+	
+			const fileChosen = document.getElementById('file-chosen');
+	
+			actualBtn.addEventListener('change', function(){
+			fileChosen.innerHTML = this.files[0].name
+			});
+		  }, [])
+	}
+
+	Registration();
+
   const { loading, request } = useFetch();
   // States for registration
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [passwordRepeat, setPasswordRepeat] = useState("");
+  const [img, setImg] = useState('');
 
   // States for checking the errors
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
 
   // Handling the name change
+  const handleImg = (e) => {
+		setImg(e.target.value);
+		setSubmitted(false);
+	};
+
   const handleName = (e) => {
     setName(e.target.value);
     setSubmitted(false);
@@ -46,59 +66,57 @@ const RegistrationPage = () => {
 
   // Handling the form submission
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(password != passwordRepeat);
-    if (password != "" && passwordRepeat != "" && password != passwordRepeat) {
-      setError("Пароли не совпадают");
-    }
-    if (
-      name === "" ||
-      password === "" ||
-      passwordRepeat === "" ||
-      password != passwordRepeat
-    ) {
-      setError("Не все поля заполнены");
-    } else {
-      setSubmitted(true);
-      setError("");
+		e.preventDefault();
+		// console.log(password != '' && passwordRepeat != '' && password != passwordRepeat);
+		if (password != '' && passwordRepeat != '' && password != passwordRepeat){
+			setError('Пароли не совпадают');
+			
+		}
+		else if (password.length < 4){
+			setError('Пароль имеет меньше 4 символов');
+		}
+		else if (name === '' || password === '' || passwordRepeat === '') {
+			setError('Не все поля заполнены');
+		} else {
+			setSubmitted(true);
+			setError('');
       handleRegister();
-    }
-  };
+		}
+	};
 
   // Showing success message
   const successMessage = () => {
-    if (password === passwordRepeat) {
-      return (
-        <div
-          className="success"
-          style={{
-            display: submitted ? "" : "none",
-          }}
-        >
-          <h1>User {name} successfully registered!!</h1>
-        </div>
-      );
-    }
-  };
+		if (password === passwordRepeat){
+			return (
+				<div
+					className="success"
+					style={{
+						display: submitted ? '' : 'none', color: 'green'
+					}}>
+					<h1>Пользователь {name} успешно зарегистрирован</h1>
+				</div>
+			);
+		}
+	};
 
-  const errorMessage = () => {
-    return (
-      <div
-        className="error"
-        style={{
-          display: error ? "" : "none",
-        }}
-      >
-        <h1>Please enter all the fields</h1>
-      </div>
-    );
-  };
+	const errorMessage = () => {
+		return (
+			<h1>{error}</h1>
+		);
+	};
 
   return (
-    <div className="form">
-      <div>
-        <h1>User Registration</h1>
+    <div className="form_container">
+
+			<img class="form-img" src="../src/assets/images/regi.png" alt="" />
+            {/* Calling to the methods */}
+      <div className="messages">
+        {errorMessage()}
+        {successMessage()}
+        {/* {confirmPass()} */}
       </div>
+
+
 
       {/* Calling to the methods */}
       <div className="messages">
@@ -106,44 +124,39 @@ const RegistrationPage = () => {
         {successMessage()}
         {/* {confirmPass()} */}
       </div>
+      <div className='form_box-header'>
+					<p className="label form_box-header-text" >Welcome to the<br></br> Code Wars! </p>
+				</div>
 
-      <form>
-        {/* Labels and inputs for form data */}
-        <label className="label">Имя пользователя</label>
-        <input
-          onChange={handleName}
-          className="input"
-          value={name}
-          type="text"
-        />
+				<form>
+					<p className="label-top" >CREATE ACCOUNT</p>
 
-        <label className="label">Пароль</label>
-        <input
-          onChange={handlePassword}
-          className="input"
-          value={password}
-          type="password"
-        />
+					<div className='input_box'>
+						
+						<input onChange={handleName} className="input" value={name} type="text" placeholder="username" maxlength="16" required/>
 
-        <label className="label">Повтор пароля</label>
-        <input
-          onChange={handlePasswordRepeat}
-          className="input"
-          value={passwordRepeat}
-          type="password"
-        />
+						<input onChange={handlePassword} className="input" value={password} type="password" placeholder="password" required/>
 
-        <button
-          disabled={loading}
-          onClick={handleSubmit}
-          className="btn"
-          type="submit"
-        >
-          Submit
-        </button>
-      </form>
-    </div>
-  );
+						<input onChange={handlePasswordRepeat} className="input" value={passwordRepeat} type="password" placeholder="repeat password" minlength="4"/>	
+					
+						<input onChange={handleImg} value={img} type="file" id="actual-btn" accept="image/png, image/gif, image/jpeg" hidden/>
+						<label for="actual-btn" id="actual-btn" className="file">Выберите аватар</label>
+						<span id="file-chosen">No file chosen</span>
+
+						
+					</div>
+					
+					<div className="label mes">{errorMessage()}{successMessage()}</div>
+
+					<button onClick={handleSubmit} className="btn"
+							type="submit">
+						Sign in
+					</button>
+				</form>
+			</div>
+		</div>
+    );
 };
+
 
 export default RegistrationPage;

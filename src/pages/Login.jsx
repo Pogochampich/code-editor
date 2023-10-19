@@ -61,10 +61,7 @@ const LoginPage = () => {
 	};
 
 	return (
-		<div className="form">
-			<div>
-				<h1>Регистрация пользователя</h1>
-			</div>
+		<div className="form_container">
 
 			{/* Calling to the methods */}
 			<div className="messages">
@@ -73,21 +70,30 @@ const LoginPage = () => {
 				{/* {confirmPass()} */}
 			</div>
 
-			<form>
-				{/* Labels and inputs for form data */}
-				<label className="label">Имя пользователя</label>
-				<input onChange={handleName} className="input"
-					value={name} type="text" />
+			<img class="form-img" src="../src/assets/images/logi.png" alt="" />
 
-				<label className="label">Пароль</label>
-				<input onChange={handlePassword} className="input"
-					value={password} type="password" />
+			
+			<div className="form_box">
 
-				<button onClick={handleSubmit} className="btn"
-						type="submit">
-					Войти
-				</button>
-			</form>
+				<div className='form_box-header'>
+					<label className="label form_box-header-text" >Welcome to the<br></br> Code Wars! </label>
+				</div>
+
+				<form>
+					{/* Labels and inputs for form data */}
+					<label className="label label-top" >LOGIN ACCOUNT</label>
+					<div className='input_box'>
+						<input onChange={handleName} className="input" value={name} type="text" placeholder="username"/>
+
+
+						<input onChange={handlePassword} className="input" value={password} type="password" placeholder="password"/>
+					</div>
+					
+					<button onClick={handleSubmit} className="btn" type="submit">
+						Login in
+					</button>
+				</form>
+			</div>
 		</div>
 	);
 }
