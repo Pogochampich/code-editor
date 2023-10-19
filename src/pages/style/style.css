@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat:300,regular,500,600,700,800,);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:300,regular,500,600,700,800);
 .createForm__container {
   width: 1420px;
   margin: 0 auto;
@@ -10,6 +10,7 @@
 
 .createForm__block {
   display: flex;
+  flex-direction: space-between;
 }
 
 .createForm__form {
@@ -17,12 +18,13 @@
   height: 694px;
   background-color: white;
   display: grid;
-  row-gap: 42px;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   border-radius: 10px;
   font-family: "Montserrat", sans-serif;
 }
 
 .createForm__title {
+  font-family: "Montserrat", sans-serif;
   width: 537px;
   height: 68px;
   font-size: 16px;
@@ -30,32 +32,21 @@
   background-color: #CFDBE9;
   border: none;
   margin-top: 68px;
-  padding-left: 30px;
+  padding: 0 15px 0px 20px;
   border-radius: 10px;
 }
 
 .createForm__description {
   width: 537px;
-  height: 68px;
+  max-height: 68px;
   font-size: 16px;
   margin: 0 auto;
   background-color: #CFDBE9;
   border: none;
-  padding-top: 30px;
-  padding-left: 30px;
+  padding: 15px 15px 0px 20px;
   border-radius: 10px;
-}
-
-.createForm__Form {
-  width: 537px;
-  height: 68px;
-  font-size: 16px;
-  margin: 0 auto;
-  padding-top: 30px;
-  background-color: #CFDBE9;
-  border: none;
-  padding-left: 30px;
-  border-radius: 10px;
+  margin-top: 45px;
+  resize: vertical;
 }
 
 .createForm__Button {
@@ -65,12 +56,100 @@
   color: white;
   border-radius: 10px;
   margin: 0 auto;
+  font-size: 18px;
+  transition: all 0.3s ease-in;
 }
 
 .createForm__Button:hover {
-  background-color: #CFDBE9;
-  color: #03045E;
+  background-color: #FF7D00;
   border: none;
+}
+
+.battle__container {
+  width: 1420px;
+  margin: 0 auto;
+}
+
+.battle__block {
+  width: 1413px;
+  background-color: #FFECD1;
+  border-radius: 10px;
+}
+
+.battle__title {
+  padding-top: 50px;
+  padding-left: 50px;
+}
+
+.battle__text {
+  padding-left: 50px;
+  padding-top: 32px;
+  padding-bottom: 50px;
+}
+
+.playerOne {
+  margin-top: 100px;
+}
+
+.playerOne__form {
+  background-color: #03045E;
+  width: 1376px;
+  height: 99px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  top: 0;
+}
+
+.playerOne__title {
+  font-weight: 300;
+  padding-left: 48px;
+}
+
+.playerOne__btn {
+  border-radius: 10px 0px;
+  border-color: transparent;
+  background: #FF7D00;
+  color: white;
+  width: 195px;
+  height: 60px;
+  font-weight: 700;
+  font-size: 16px;
+  transition: all 0.4s ease-in;
+}
+
+.playerOne__btn:hover {
+  background: #fc9738;
+}
+
+.playerOne__text {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 1346px;
+  height: 500px;
+  margin: 0 auto;
+  resize: vertical;
+  padding: 15px 15px 0px 15px;
+}
+
+.playerTwo {
+  margin-top: 650px;
+}
+
+.playerOne__text2 {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 1346px;
+  height: 500px;
+  margin: 0 auto;
+  resize: vertical;
+  padding: 15px;
+  margin-bottom: 100px;
 }
 
 form {
@@ -83,13 +162,16 @@ header {
   background-color: #001524;
 }
 
-footer {
+.footer__container {
+  width: 1420px;
+  margin: 60px auto;
+}
+
+.footer__text {
   font-family: "Montserrat", sans-serif;
-  font-weight: regular;
+  font-weight: 300;
   font-size: 14px;
   color: white;
-  margin-top: 50px;
-  margin-left: 50px;
 }
 
 * {
