@@ -14,9 +14,9 @@ const Header = () => {
     <>
       <header>
         <div className="header_textbox">
-          <a href="/tasks" className="header_logbox-reg">
+          <Link to="/tasks" className="header_logbox-reg">
             Code Wars
-          </a>
+          </Link>
         </div>
 
         <div className="header_logbox">

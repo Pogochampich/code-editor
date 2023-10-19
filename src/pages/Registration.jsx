@@ -106,6 +106,8 @@ const RegistrationPage = () => {
       <img className="form-img" src="../src/assets/images/regi.png" alt="" />
       {/* Calling to the methods */}
 
+      <div className="form_box">
+
       <div className="form_box-header">
         <p className="label form_box-header-text">
           Welcome to the<br></br> Code Wars!{" "}
@@ -172,6 +174,7 @@ const RegistrationPage = () => {
           Sign in
         </button>
       </form>
+      </div>
     </div>
   );
 };

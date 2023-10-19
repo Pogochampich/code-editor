@@ -93,15 +93,14 @@
 
 .playerOne__form {
   background-color: #03045E;
-  width: 1376px;
-  height: 99px;
   color: white;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
   position: relative;
   top: 0;
+  padding-top: 20px;
 }
 
 .playerOne__title {
@@ -129,7 +128,7 @@
   position: absolute;
   top: 100px;
   left: 0;
-  width: 1346px;
+  width: 1390px;
   height: 500px;
   margin: 0 auto;
   resize: vertical;
@@ -137,19 +136,18 @@
 }
 
 .playerTwo {
-  margin-top: 650px;
+  margin-top: 200px;
 }
 
 .playerOne__text2 {
   position: absolute;
   top: 100px;
   left: 0;
-  width: 1346px;
+  width: 1390px;
   height: 500px;
   margin: 0 auto;
   resize: vertical;
-  padding: 15px;
-  margin-bottom: 100px;
+  padding: 15px 15px 0px 15px;
 }
 
 .reg_image {

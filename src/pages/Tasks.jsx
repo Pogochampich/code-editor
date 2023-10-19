@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import {Link, Outlet} from 'react-router-dom';
 
-
 const Tasks = () => {
 
     const [taskname, setTaskName] = useState('Task');
@@ -44,7 +43,7 @@ const Tasks = () => {
                     <tr>
                         <th>{taskname}</th>
                         <th>{desc}</th>
-                        <th><Link to={btnhref}><button className="tasks-main-button">Connect</button></Link></th>
+                        <th><Link to='/battle'><button className="tasks-main-button">Connect</button></Link></th>
                     </tr>
 
                     {/* <tr>
