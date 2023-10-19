@@ -70,7 +70,7 @@ const LoginPage = () => {
 				{/* {confirmPass()} */}
 			</div>
 
-			<img class="form-img" src="../src/assets/images/reg.png" alt="" />
+			<img class="form-img" src="../src/assets/images/logi.png" alt="" />
 
 			
 			<div className="form_box">
@@ -90,7 +90,7 @@ const LoginPage = () => {
 					</div>
 					
 					<button onClick={handleSubmit} className="btn" type="submit">
-						Войти
+						Login in
 					</button>
 				</form>
 			</div>
